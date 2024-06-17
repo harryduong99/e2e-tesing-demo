@@ -31,7 +31,7 @@ export default defineConfig({
     baseURL: BASE_URL,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
-    // headless: process.env.CI ? false : true,
+    headless: process.env.CI ? false : true,
   },
   webServer: {
     command: `yarn dev`,
