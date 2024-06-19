@@ -5,7 +5,9 @@ import path from "path";
 const PORT = process.env.PORT || 3000;
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 
-// dotenv.config({ path: path.resolve(__dirname, "", ".env.local") });
+// if (!process.env.CI) {
+  dotenv.config({ path: path.resolve(__dirname, "", ".env.local") });
+// }
 
 /**
  * See https://playwright.dev/docs/test-configuration.
