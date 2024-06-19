@@ -21,6 +21,8 @@ jobs:
       run: xvfb-run npx playwright test
       env:
         NEXT_PUBLIC_ENV_TEST: ${{ secrets.NEXT_PUBLIC_ENV_TEST }}
+        E2E_METAMASK_SEED_PHRASE: ${{ secrets.E2E_METAMASK_SEED_PHRASE }}
+        E2E_METAMASK_HEADLESS_MODE: ${{ secrets.E2E_METAMASK_HEADLESS_MODE }}
     - uses: actions/upload-artifact@v4
       if: always()
       with:
