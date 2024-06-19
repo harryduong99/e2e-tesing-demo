@@ -30,7 +30,7 @@ export default defineConfig({
     permissions: ["clipboard-read", "clipboard-write"],
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
-    headless: process.env.CI ? true : false,
+    // headless: process.env.CI ? true : false,
   },
   webServer: {
     command: `yarn dev`,
