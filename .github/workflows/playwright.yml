@@ -23,7 +23,7 @@ jobs:
         NEXT_PUBLIC_ENV_TEST: ${{ vars.NEXT_PUBLIC_ENV_TEST }}
         E2E_METAMASK_SEED_PHRASE: ${{ secrets.E2E_METAMASK_SEED_PHRASE }}
         E2E_METAMASK_HEADLESS_MODE: ${{ secrets.E2E_METAMASK_HEADLESS_MODE }}
-    - name: Run the Action
+    - name: Push artifact
       uses: devops-infra/action-commit-push@master
       with:
         github_token: "${{ secrets.GITHUB_TOKEN }}"
