@@ -23,6 +23,15 @@ jobs:
         NEXT_PUBLIC_ENV_TEST: ${{ vars.NEXT_PUBLIC_ENV_TEST }}
         E2E_METAMASK_SEED_PHRASE: ${{ secrets.E2E_METAMASK_SEED_PHRASE }}
         E2E_METAMASK_HEADLESS_MODE: ${{ secrets.E2E_METAMASK_HEADLESS_MODE }}
+    - name: Run the Action
+      uses: devops-infra/action-commit-push@master
+      with:
+        github_token: "${{ secrets.GITHUB_TOKEN }}"
+        add_timestamp: true
+        commit_prefix: "[AUTO]"
+        commit_message: "Automatic commit artifacts"
+        force: true
+        target_branch: playwright-report
     - uses: actions/upload-artifact@v4
       if: always()
       with:
