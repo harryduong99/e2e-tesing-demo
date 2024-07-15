@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "xvfb-run npx playwright test",
-  "devCommand": "yarn playwright show-report",
-  "installCommand": "yarn install && yarn playwright install --with-deps",
+  "buildCommand": "",
+  "devCommand": "npx playwright show-report",
+  "installCommand": "yarn",
   "framework": null,
   "outputDirectory": "./playwright-report"
 }
