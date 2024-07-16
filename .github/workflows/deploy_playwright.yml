@@ -1,7 +1,8 @@
 name: Deploy Playwright Report
 on:
   push:
-    branches: playwright-report
+    branches: 
+      - playwright-report
 jobs:
   test:
     timeout-minutes: 60
