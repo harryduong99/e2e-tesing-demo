@@ -1,4 +1,4 @@
-name: Deploy Playwright Artifact
+name: Publish Playwright Artifact
 on: 
   push:
     branches:
@@ -26,9 +26,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: playwright-report
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
       - name: Install dependencies
         run: yarn
       - name: Install Playwright Browsers
@@ -39,10 +36,10 @@ jobs:
           NEXT_PUBLIC_ENV_TEST: ${{ vars.NEXT_PUBLIC_ENV_TEST }}
           E2E_METAMASK_SEED_PHRASE: ${{ secrets.E2E_METAMASK_SEED_PHRASE }}
           E2E_METAMASK_HEADLESS_MODE: ${{ secrets.E2E_METAMASK_HEADLESS_MODE }}
-      - name: Commit changes
+      - name: Commit playwright artifact
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Automated Change
+          commit_message: 'chore: automated pushing e2e artifact'
           branch: playwright-report
           commit_options: '--no-verify --signoff'
           commit_author: Author <actions@github.com>
