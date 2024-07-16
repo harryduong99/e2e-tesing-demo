@@ -1,7 +1,7 @@
 name: Playwright Tests
 on:
-  push:
-    branches: [ develop, master ]
+  # push:
+  #   branches: [ develop, master ]
   pull_request:
     branches: [ develop, master ]
 jobs:
@@ -23,15 +23,24 @@ jobs:
         NEXT_PUBLIC_ENV_TEST: ${{ vars.NEXT_PUBLIC_ENV_TEST }}
         E2E_METAMASK_SEED_PHRASE: ${{ secrets.E2E_METAMASK_SEED_PHRASE }}
         E2E_METAMASK_HEADLESS_MODE: ${{ secrets.E2E_METAMASK_HEADLESS_MODE }}
-    - name: Run the Action
-      uses: devops-infra/action-commit-push@master
-      with:
-        github_token: "${{ secrets.GITHUB_TOKEN }}"
-        add_timestamp: true
-        commit_prefix: "[AUTO]"
-        commit_message: "Automatic commit artifacts"
-        force: true
-        target_branch: playwright-report
+    # - name: Push artifact
+    #   uses: devops-infra/action-commit-push@master
+    #   with:
+    #     github_token: "${{ secrets.GITHUB_TOKEN }}"
+    #     commit_prefix: "[AUTO]"
+    #     commit_message: "Automatic commit artifacts"
+    #     force: true
+    #     target_branch: playwright-report
+    # - name: Commit changes
+    #   uses: stefanzweifel/git-auto-commit-action@v4
+    #   with:
+    #     commit_message: Automated Change
+    #     branch: playwright-report
+    #     commit_options: '--no-verify --signoff'
+    #     commit_author: Author <actions@github.com>
+    #     status_options: '--untracked-files=no'
+    #     push_options: '--force'
+    #     skip_dirty_check: true
     - uses: actions/upload-artifact@v4
       if: always()
       with:
