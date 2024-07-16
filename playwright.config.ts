@@ -13,7 +13,7 @@ if (!process.env.CI) {
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: "./tests",
+  testDir: "./tests/e2e",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -24,7 +24,21 @@ export default defineConfig({
   workers: 1,
   timeout: 2 * 60 * 1000,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  // reporter: "html",
+  reporter: [
+    [
+      "monocart-reporter",
+      {
+        name: "Playwright e2e report",
+        outputFile: "playwright-report/e2e/index.html",
+        coverage: {
+          entryFilter: () => true,
+          sourceFilter: (sourcePath: any) => sourcePath.search(/src\//) !== -1,
+          lcov: true,
+        },
+      },
+    ],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
