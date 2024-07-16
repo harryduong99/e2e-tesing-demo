@@ -1,0 +1,24 @@
+name: Deploy Playwright Artifact
+on: 
+  push:
+    branches:
+      - develop
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Merge develop -> playwright-report
+        uses: devmasx/merge-branch@1.4.0
+        with:
+          type: now
+          from_branch: develop
+          target_branch: playwright-report
+          github_token: ${{ secrets.GITHUB_TOKEN }}
