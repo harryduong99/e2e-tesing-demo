@@ -20,6 +20,10 @@ test("has title", async () => {
   await expect(sharedPage).toHaveTitle(/E2E tests/);
 });
 
+test("has title 2", async () => {
+  await expect(sharedPage).toHaveTitle(/E2E tests/);
+});
+
 test("has env value", async () => {
   const envCheck = await sharedPage.locator(".env-check");
   await expect(envCheck).toHaveText("env test value");
