@@ -4,7 +4,7 @@ on:
     branches:
       - develop
 jobs:
-  build-and-deploy:
+  test-and-publish:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     permissions:
