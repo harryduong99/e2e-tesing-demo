@@ -1,3 +1,3 @@
 # Introduction
 
-This project contains e2e testing setup with playwright and the artifact (playwright test results) deployment
+E2E testing with metamask interaction (playwright + synpress) and Continuous Integration for artifacts deployment
