@@ -43,7 +43,7 @@ test("has title", async () => {
   await expect(sharedPage).toHaveTitle(/E2E tests/);
 });
 
-test("has title 4", async () => {
+test("title is correct", async () => {
   await expect(sharedPage).toHaveTitle(/E2E tests/);
 });
 
