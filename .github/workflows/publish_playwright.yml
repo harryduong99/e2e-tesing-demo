@@ -36,6 +36,7 @@ jobs:
           NEXT_PUBLIC_ENV_TEST: ${{ vars.NEXT_PUBLIC_ENV_TEST }}
           E2E_METAMASK_SEED_PHRASE: ${{ secrets.E2E_METAMASK_SEED_PHRASE }}
           E2E_METAMASK_HEADLESS_MODE: ${{ secrets.E2E_METAMASK_HEADLESS_MODE }}
+          SIGNING_PRIVATE_KEY: ${{ secrets.SIGNING_PRIVATE_KEY }}
       - name: Commit playwright artifact
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
