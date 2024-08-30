@@ -54,5 +54,5 @@ test("has env value", async () => {
 
 test("check environment", async () => {
   const envCheck = await sharedPage.locator(".env-secrets");
-  await expect(envCheck).toHaveText("123");
+  await expect(envCheck).toHaveText("234");
 });
