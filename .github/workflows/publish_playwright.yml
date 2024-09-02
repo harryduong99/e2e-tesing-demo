@@ -15,17 +15,21 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
-      - name: Merge develop -> playwright-report
-        uses: devmasx/merge-branch@1.4.0
-        with:
-          type: now
-          from_branch: develop
-          target_branch: playwright-report
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/checkout@v4
-        with:
-          ref: playwright-report
+          node-version: 20
+      # - name: Merge develop -> playwright-report
+      #   uses: devmasx/merge-branch@1.4.0
+      #   with:
+      #     type: now
+      #     from_branch: develop
+      #     target_branch: playwright-report
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      # - uses: actions/checkout@v4
+      #   with:
+      #     ref: develop
+      - name: Create and checkout e2e-test-report branch
+        run: git checkout -b e2e-test-report
+      - name: Cherry-pick config commit
+        run: git cherry-pick 67cbcc1a894e34c0fa725885fd19ff8d1c0891ab
       - name: Install dependencies
         run: yarn
       - name: Install Playwright Browsers
