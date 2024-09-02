@@ -30,6 +30,10 @@ jobs:
         run: git fetch origin config-report
       - name: Create and checkout e2e-test-report branch
         run: git checkout -b e2e-test-report
+      - name: Configure Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
       - name: Cherry-pick config commit
         run: git cherry-pick 67cbcc1a894e34c0fa725885fd19ff8d1c0891ab
       - name: Install dependencies
