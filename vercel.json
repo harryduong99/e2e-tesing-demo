@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "yarn",
+  "devCommand": "yarn monocart show-report playwright-report/e2e/index.html",
+  "installCommand": "yarn",
+  "framework": null,
+  "outputDirectory": "./playwright-report/e2e"
+}
