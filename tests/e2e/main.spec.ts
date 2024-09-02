@@ -43,11 +43,16 @@ test("has title", async () => {
   await expect(sharedPage).toHaveTitle(/E2E tests/);
 });
 
-test("has title 4", async () => {
+test("title is correct", async () => {
   await expect(sharedPage).toHaveTitle(/E2E tests/);
 });
 
 test("has env value", async () => {
   const envCheck = await sharedPage.locator(".env-check");
   await expect(envCheck).toHaveText("env test value");
+});
+
+test("check environment", async () => {
+  const envCheck = await sharedPage.locator(".env-secrets");
+  await expect(envCheck).toHaveText("234");
 });

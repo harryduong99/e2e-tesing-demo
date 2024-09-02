@@ -8,6 +8,7 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    environment: mainnet
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -23,6 +24,7 @@ jobs:
         NEXT_PUBLIC_ENV_TEST: ${{ vars.NEXT_PUBLIC_ENV_TEST }}
         E2E_METAMASK_SEED_PHRASE: ${{ secrets.E2E_METAMASK_SEED_PHRASE }}
         E2E_METAMASK_HEADLESS_MODE: ${{ secrets.E2E_METAMASK_HEADLESS_MODE }}
+        SIGNING_PRIVATE_KEY: ${{ secrets.SIGNING_PRIVATE_KEY }}
     # - name: Push artifact
     #   uses: devops-infra/action-commit-push@master
     #   with:
