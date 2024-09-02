@@ -51,7 +51,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: 'chore: automated pushing e2e artifact'
-          branch: playwright-report
+          branch: e2e-test-report
           commit_options: '--no-verify --signoff'
           commit_author: Author <actions@github.com>
           status_options: '--untracked-files=no'
